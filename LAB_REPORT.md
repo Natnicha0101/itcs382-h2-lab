@@ -8,14 +8,17 @@ Repository URL: https://github.com/Natnicha0101/itcs382-h2-lab.git
 | --- | --- |
 | JDK | 17.0.12 |
 | Maven | 3.10.0 |
-| IDE | 2.39.3 |
+| IDE | VS Code 1.145.2 |
 | AI tool and exact model, if you used one | ChatGPT (GPT-6 Luna) |
 
 ## Part 0. From a store in memory to H2
 
 Commit of the starter, before any change: 7cddb6f
 
-0.3 Your prediction for `staff`, written before the second run: No parcels will be listed and all lockers is free
+0.3 Your prediction for `staff`, written before the second run.
+```text
+I think no parcels will be listed and all lockers is free
+```
 
 Output of the second run, for `staff` and `quit`: 
 
@@ -25,7 +28,7 @@ Free lockers: 3
 
 State in one sentence where you think the parcels of the first run were kept.
 ```text
-Ans: I think parcels were kept in program's memory.
+Ans: I think the parcels were kept in the program's memory.
 ```
 
 0.5 The line of Main that you would change to keep the parcels somewhere else:
@@ -115,7 +118,7 @@ flowchart TB
 
 State whether cli depends on storage, and explain why.
 ```text
-Ans: Cli depends on service and domain because ParcelService uses the ParcelRepository interface in storage.
+Ans: No. The cli package depends on service and domain, but it does not depend on storage. ParcelCommandLine calls ParcelService and does not use storage classes.
 ```
 
 A2 Complete the class diagram of the data management layer with ParcelService, the interface ParcelRepository with its three operations, and the two classes that implement it.
@@ -179,7 +182,7 @@ Ans: I changed Main.java to use H2ParcelRepository because ParcelService depends
 
 2. The PARCEL table stores the size of a parcel as SMALL, MEDIUM or LARGE rather than as 1, 2 or 3. Identify the type of connascence between ParcelSize and the table in each case, and explain which one is weaker.
 ```text
-Ans:Table stores names such as SMALL, so the code and table have connascence of name because they must use the same names. If the table stores numbers such as 1, 2, and 3 it has connascence of position or convention because both sides must agree on the meaning of each number. Connascence of name is weaker because the meaning is explicit.
+Ans:The table stores names such as SMALL, so the code and table have connascence of name because they must use the same names. If the table stores numbers such as 1, 2, and 3 it has connascence of convention because both sides must agree on the meaning of each number. Connascence of name is weaker because the meaning is explicit.
 ```
 
 3. Project Phase 2 asks for a data store that needs no separate server. Explain why an embedded database such as H2 meets this rule, and describe the limit of an embedded database that Step 0.8 showed.
@@ -189,11 +192,11 @@ Ans: H2 meets the rule because it runs inside the Java program as a library and 
 
 4. State the data store that you would choose for your Project Phase 2 team, files or an embedded database, the requirement that drives the choice, and the package that will access it.
 ```text
-Ans: I would choose embedded database because it remain data after the program ends and does not allow a separate server. 
+Ans: I would choose an embedded database because it keeps data after the program ends and does not need a separate server. The storage package will access the database.
 ```
 
 ## AI usage declaration
 
 | AI tool and exact model | Date | Purpose | Files or answers it produced or changed | How you checked its output |
 | --- | --- | --- | --- | --- |
-| ChatGPT (GPT-6 Luna) | 10 November 2026 | To understand the lab steps, check English grammar, and get help with the findAll method and diagrams | LAB_REPORT.md and H2ParcelRepository.java | I compared guidance with lab pdf, check the code and run the program and SQL queries to verify the results.|
+| ChatGPT (GPT-6 Luna) | 10 November 2026 | To understand the lab steps, check English grammar, and get help with the findAll method and diagrams | LAB_REPORT.md and H2ParcelRepository.java | I compared the advice with the lab PDF, checked the code, and ran the program and SQL queries.|
